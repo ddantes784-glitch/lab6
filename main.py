@@ -1,15 +1,8 @@
-import random
-
-n = int(input("Введите N: "))
-numbers = [random.randint(1, 100) for _ in range(n)]
-print(f"Исходный список: {numbers}")
-print(f"Сумма: {sum(numbers)}")
-print(f"Среднее: {sum(numbers) / len(numbers):.2f}")
-print(f"Минимум: {min(numbers)}")
-print(f"Максимум: {max(numbers)}")
-# Сортировка списка
-numbers.sort()
-print(f"Отсортированный: {numbers}")
-# Удаление дубликатов из списка с сохранением порядка
-unique = list(dict.fromkeys(numbers))
-print(f"Без дубликатов: {unique}")
+numbers = [1, 2, 3, 2, 4, 5, 1, 6, 3, 7]
+seen = set()
+duplicates = set()
+for num in numbers:
+    if num in seen:
+        duplicates.add(num)
+    seen.add(num)
+print(f"Дубликаты: {list(duplicates)}")
