@@ -1,8 +1,14 @@
-numbers = [1, 2, 3, 2, 4, 5, 1, 6, 3, 7]
-seen = set()
-duplicates = set()
-for num in numbers:
-    if num in seen:
-        duplicates.add(num)
-    seen.add(num)
-print(f"Дубликаты: {list(duplicates)}")
+matrix = [
+    [1, 2, 3],
+    [3, 6, 9],
+    [6, 12, 18]
+]
+# unpacking with zip
+transposed = [list(row) for row in zip(*matrix)]
+# outpoot
+print('Исходная матрица: ')
+for row in matrix:
+    print(row)
+print('Транспонированная матрица: ')
+for row in transposed:
+    print(row)
