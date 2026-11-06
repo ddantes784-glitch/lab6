@@ -1,27 +1,9 @@
-def merge_sort(arr):
+def quick_sort(arr):
     if len(arr) <= 1:
         return arr
-
-    mid = len(arr) // 2
-    left_half = merge_sort(arr[:mid])
-    right_half = merge_sort(arr[mid:])
-
-    return merge(left_half, right_half)
-
-def merge(left, right):
-    result = []
-    i = j = 0
-
-    while i < len(left) and j < len(right):
-        if left[i] < right[j]:
-            result.append(left[i])
-            i += 1
-        else:
-            result.append(right[j])
-            j += 1
-
-    result.extend(left[i:])
-    result.extend(right[j:])
-    return result
-
-print(merge_sort([384, 27, 43, 6, 2, 266, 104]))
+    opor = arr[len(arr) // 2]
+    left = [x for x in arr if x < opor]
+    middle = [x for x in arr if x == opor]
+    right = [x for x in arr if x > opor]
+    return quick_sort(left) + middle + quick_sort(right)
+print(quick_sort([20, 712, 8, 29, 13, 25]))
